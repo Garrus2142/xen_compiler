@@ -1,8 +1,8 @@
 # Xen Compiler
 Compilateur de fichiers xen en binaire pour être lu par le PIC32
 ## Requirement
-Python 2
-Xen file
+* Python 2
+* Xen file
 
 ## Usage
 python xen_compiler [xenfile to compile]

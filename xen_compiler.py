@@ -2,7 +2,7 @@ import sys
 import os.path
 
 if len(sys.argv) <= 1:
-	print "Usage: python3 xen_compiler.py [file to compile]"
+	print "Usage: python xen_compiler.py [xenfile to compile]"
 	sys.exit(0)
 
 if not os.path.exists(sys.argv[1]):
