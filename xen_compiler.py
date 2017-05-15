@@ -30,10 +30,10 @@ try:
 			split[3] = int(split[3])
 
 			# Verification des valeurs
-			if split[0] < 0 or split[0] > 5:
+			if split[0] < 0 or split[0] > 7:
 				print "Fichier " + sys.argv[1] + ", ligne " + str(iline) + '\n' + "Erreur de syntaxe: Octave incorrect"
 				sys.exit(0)
-			if split[1] < 1 or split[1] > 7:
+			if split[1] < 1 or split[1] > 12:
 				print "Fichier " + sys.argv[1] + ", ligne " + str(iline) + '\n' + "Erreur de syntaxe: Note incorrect"
 				sys.exit(0)
 			if split[2] < 0 or split[2] > 255:
@@ -45,10 +45,9 @@ try:
 
 			#Ecriture du buffer
 			if tocvar:
-				cbuff += "\t" + str(split[0]) + ", " + str(split[1]) + ", " + str(split[2]) + ", " + str(split[3]) + ",\n"
+				cbuff += "\t" + str((split[0] * 12) + split[1]) + ", " + str(split[2]) + ", " + str(split[3]) + ",\n"
 			else:
-				bytesbuff.append(split[0])
-				bytesbuff.append(split[1])
+				bytesbuff.append((split[0] * 12) + split[1])
 				bytesbuff.append(split[2])
 				bytesbuff.append(split[3])
 			iline = iline + 1

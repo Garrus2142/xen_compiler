@@ -5,12 +5,14 @@ Compilateur de fichiers xen en binaire pour être lu par le PIC32
 * Xen file
 
 ## Usage
-python xen_compiler [xenfile to compile]
+python xen_compiler [xenfile to compile] {-c to gen c file}
 
 ## Xen format
-[octave 0:5];[note 1:7];[durée (centième de secondes 0:255];[attente (centième de secondes 0:255)]
+[octave 0:7];[note 1:12];[durée (centième de secondes 0:255];[attente (centième de secondes 0:255)]
+Ex:
+0;1;100;50 = Do (32Hz) pendant 1s et attend 0.5s avant de jouer la prochaine note.
 
 ## Bin format
-Une instruction est contenu dans 4 octets.
+Une instruction est contenu dans 3 octets.
 Ex:
-L'octet 6 est la note de la 2eme instruction.
+L'octet 5 est la note de la 2eme instruction.
