@@ -17,6 +17,7 @@ try:
 		iline = 1
 		bytesbuff = bytearray()
 		cbuff = "unsigned char data[] = {\n"
+		csize = 1
 		for line in file:
 			line = line.replace('\n', '').replace('\r', '')
 			split = line.split(';')
@@ -45,6 +46,7 @@ try:
 
 			#Ecriture du buffer
 			if tocvar:
+				csize += 3
 				cbuff += "\t" + str((split[0] * 12) + split[1]) + ", " + str(split[2]) + ", " + str(split[3]) + ",\n"
 			else:
 				bytesbuff.append((split[0] * 12) + split[1])
@@ -58,7 +60,7 @@ try:
 			filec = sys.argv[1].split('.')[0] + '.c'
 			with open(filec, "w") as file:
 				file.write(cbuff)
-			print "Compilation terminee. " + sys.argv[1] + " -> " + filec
+			print "Compilation terminee.(Size: " + str(csize) + ") " + sys.argv[1] + " -> " + filec
 		else:
 			filebin = sys.argv[1].split('.')[0] + '.bin'
 			with open(filebin, "wb") as file:
